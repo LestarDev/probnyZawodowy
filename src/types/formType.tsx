@@ -1,5 +1,4 @@
-import accountType, { extendedAccoutnType } from "./accountType"
-import { stateDateType, stateEmailType, stateStringType } from "./inputType"
+import { extendedAccoutnType } from "./accountType"
 
 // type mutableKey<key extends string> = Omit<>
 
@@ -13,7 +12,8 @@ type incresedFuncsType = {[Key in keyof extendedAccoutnType as (Key extends "id"
     extension: {
         isExpended: boolean,
         setIsExpended: typToReactState<boolean>
-    }
+    },
+    addKonto: ()=>void
 }
 
 // type incresedFuncsType = {

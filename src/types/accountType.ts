@@ -19,6 +19,12 @@ export const isEmail = (v: string): v is emailTyp => {
     return v.includes('@') && v.includes('.')
 }
 
+export type KontaListType<IsExtended extends boolean> = IsExtended extends true ? {
+    list: extendedAccoutnType[]
+} : {
+    list: accountType[]
+}
+
 // export type extendAccout<t extends accountType> = {[Key in keyof accountType]: accountType[Key]} & {
 //     dateOfBirth: Date
 // }

@@ -28,4 +28,5 @@ input[type="submit"]{
 
 input[type="checkbox"]::before{
   content: "Rozszerzona wersja: ";
+  color: white;
 }

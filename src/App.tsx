@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import accountType, { emailTyp, extendedAccoutnType } from './types/accountType'
+import { KontaListType, emailTyp, extendedAccoutnType } from './types/accountType'
 import Form from './components/Form/Form'
 import { inicjalDate } from './config/inicjal'
+import KontaList from './components/KontaList/KontaList'
 
 function App() {
 
@@ -16,6 +15,21 @@ function App() {
   const [birthVal, setBirthVal] = useState(inicjalDate);
   const [emailVal, setEmailVal] = useState(inicjalEmail);
   const [isExtended, setIsExtended] = useState(false);
+  const [konta, setKonta] = useState<KontaListType<true>["list"]>([])
+
+  const [id, setID] = useState(0);
+
+  const AddAccount = () => {
+    const acc: extendedAccoutnType = {
+      id: id,
+      dateOfBirth: birthVal,
+      email: emailVal,
+      login: loginVal,
+      password: passwordVal
+    }
+    setKonta(prev=>[...prev, acc])
+    setID(p=>p+1)
+  }
 
   return (
     <>
@@ -23,7 +37,7 @@ function App() {
       <Form dateOfBirthFunc={setBirthVal} passwordFunc={setPasswordVal} loginFunc={setLoginVal} emailFunc={setEmailVal} extension={{
         isExpended: isExtended,
         setIsExpended: setIsExtended
-      }} />
+      }} addKonto={AddAccount} />
 
       {
         loginVal!="" && passwordVal!="" && emailVal!=inicjalEmail ?
@@ -35,6 +49,8 @@ function App() {
           }
         </span> : ''
       }
+
+      <KontaList list={konta} />
 
     </>
   )

@@ -1,13 +1,14 @@
-import { useState } from "react"
 import incresedFuncsType from "../../types/formType"
-import formComponents from "../../types/formType"
 import Input from "../Input/Input"
 
-const Form = ({dateOfBirthFunc, passwordFunc, loginFunc, emailFunc, extension}: incresedFuncsType) => {
+const Form = ({dateOfBirthFunc, passwordFunc, loginFunc, emailFunc, extension, addKonto}: incresedFuncsType) => {
 
     
 
-    return <form onSubmit={(e)=>e.preventDefault()}>
+    return <form onSubmit={(e)=>{
+        e.preventDefault()
+        addKonto();
+    }}>
         <Input typ="login" increaseFun={loginFunc} />
         <Input typ="password" increaseFun={passwordFunc} />
         <Input typ="email" increaseFun={emailFunc} />
