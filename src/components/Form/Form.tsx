@@ -9,9 +9,9 @@ const Form = ({dateOfBirthFunc, passwordFunc, loginFunc, emailFunc, extension, a
         e.preventDefault()
         addKonto();
     }}>
-        <Input typ="login" increaseFun={loginFunc} />
-        <Input typ="password" increaseFun={passwordFunc} />
-        <Input typ="email" increaseFun={emailFunc} />
+        <Input typ="login" increaseFun={loginFunc} key={crypto.randomUUID()} />
+        <Input typ="password" increaseFun={passwordFunc} key={crypto.randomUUID()} />
+        <Input typ="email" increaseFun={emailFunc} key={crypto.randomUUID()} />
         {
             extension.isExpended ?  <Input typ="Date" increaseFun={dateOfBirthFunc} /> : ''
         }
