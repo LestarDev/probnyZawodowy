@@ -1,6 +1,6 @@
 import { useRef } from "react"
 import inputType from "../../types/inputType"
-import { emailTyp, isEmail } from "../../types/accountType"
+import { isEmail } from "../../types/accountType"
 
 const Input = ({typ, increaseFun}: inputType) => {
 
