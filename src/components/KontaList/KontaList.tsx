@@ -9,17 +9,17 @@ const KontaList = ({list}: KontaListType<true>) => {
         setListHTML([])
         list.filter(u=>u.id!=2).forEach((v,i)=>{
             setListHTML(prev=>[...prev, <div>
-                {i}
+                {i+1}
                 {v.login}: {v.email}
             </div>])
         })
     },[list])
 
-    return <div>
+    return <section>
         {
             listHTML
         }
-    </div>
+    </section>
 }
 
 export default KontaList
